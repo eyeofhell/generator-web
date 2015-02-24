@@ -15,6 +15,9 @@ module.exports = generators.Base.extend({
       this.templatePath('fastcgi_params.tpl'),
       this.destinationPath('conf', 'fastcgi_params')
     );
+    //  For nginx to start.
+    this.mkdir('logs');
+    this.mkdir('temp');
   }
 });
 
