@@ -9,6 +9,7 @@
   "author": "Grigory Petrov <grigory.v.p@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
+    "js-beautify": "^1.5.5",
     "yeoman-generator": "^0.18.8"
   }
 }
