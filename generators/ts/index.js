@@ -1,32 +1,36 @@
 var generators = require('yeoman-generator');
-var beautify = require('js-beautify').js_beautify;
-var path = require('path');
 
 
 module.exports = generators.Base.extend({
-  installingGruntTs: function () {
-    this.npmInstall(['grunt-ts'], {'save': true});
+  installingDeps: function () {
+    this.npmInstall(['jsx-typescript'], {'save': true});
   },
 
 
-  writingTsGrunt: function () {
-    var _this = this;
-    this.gruntfile.insertConfig('ts', JSON.stringify({
+  writingGrunt: function () {
+    this.gruntfile.insertConfig('typescript', JSON.stringify({
       dist: {
         files: [
           {
             src: 'src/_references.ts',
-            outDir: 'public/app.js',
+            dest: 'public/app.js',
           },
         ],
       },
     }));
-    this.env.runLoop.add('writing', function (done) {
-      var data = _this.fs.read(_this.destinationPath('Gruntfile.js'));
-      data = beautify(data, {indent_size: 2});
-      _this.fs.write(_this.destinationPath('Gruntfile.js'), data);
-      done();
-    }, {once: 'gruntfile-postprocess:write'})
+    require('./../../common/gruntfile_postprocess')(this);
   },
+
+
+  writingTask: function () {
+    this.fs.copyTpl(
+      this.templatePath('typescript.js'),
+      this.destinationPath('grunt/typescript.js')
+    );
+    this.fs.copyTpl(
+      this.templatePath('_references.ts'),
+      this.destinationPath('src/_references.ts')
+    );
+  }
 });
 
