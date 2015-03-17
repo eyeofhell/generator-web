@@ -1,11 +1,16 @@
 var generators = require('yeoman-generator');
-
+var install = require('./../../common/conditional_install');
 
 module.exports = generators.Base.extend({
 
+  initializing: function() {
+    this.config.set('package', this.fs.readJSON('package.json'));
+  },
+
+
   installingDeps: function () {
-    this.npmInstall(['lodash'], {'save': true});
-    this.npmInstall(['jit-grunt'], {'save': true});
+    install(this, 'lodash');
+    install(this, 'jit-grunt');
   },
 
 

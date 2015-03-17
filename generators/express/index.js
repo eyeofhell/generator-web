@@ -1,18 +1,22 @@
 var generators = require('yeoman-generator');
+var install = require('./../../common/conditional_install');
 
 
 module.exports = generators.Base.extend({
 
   initializing: function() {
     var package = this.fs.readJSON('package.json');
+    this.config.set('package', package);
     if (!package.config || true !== package.config.typescript) {
       return this.env.error("project is not typescript, use 'yo web:ts'");
     }
   },
 
-  installingDeps: function() {
-    this.npmInstall(['express'], {'save': true});
+
+  installingDeps: function () {
+    install(this, 'express');
   },
+
 
   writingFiles: function() {
     this.fs.copyTpl(

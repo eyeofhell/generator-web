@@ -9,5 +9,5 @@ module.exports = function(task) {
     task.fs.write(task.destinationPath('Gruntfile.js'), data);
     done();
   }, {once: 'gruntfile-postprocess:write'})
-}
+};
 

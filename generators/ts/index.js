@@ -1,10 +1,16 @@
 var generators = require('yeoman-generator');
+var install = require('./../../common/conditional_install');
 
 
 module.exports = generators.Base.extend({
 
-  installingDeps: function() {
-    this.npmInstall(['jsx-typescript'], {'save': true});
+  initializing: function() {
+    this.config.set('package', this.fs.readJSON('package.json'));
+  },
+
+
+  installingDeps: function () {
+    install(this, 'jsx-typescript');
   },
 
 
