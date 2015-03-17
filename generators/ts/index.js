@@ -2,6 +2,7 @@ var generators = require('yeoman-generator');
 
 
 module.exports = generators.Base.extend({
+
   installingDeps: function() {
     this.npmInstall(['jsx-typescript'], {'save': true});
   },
@@ -22,14 +23,14 @@ module.exports = generators.Base.extend({
   },
 
 
-  writingTask: function() {
+  writingFiles: function() {
     this.fs.copyTpl(
       this.templatePath('typescript.js'),
       this.destinationPath('grunt/typescript.js')
     );
     this.fs.copyTpl(
       this.templatePath('_references.ts'),
-      this.destinationPath('src/_references.ts')
+      this.destinationPath('src', '_references.ts')
     );
   },
 
