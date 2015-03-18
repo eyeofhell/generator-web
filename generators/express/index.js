@@ -1,5 +1,6 @@
 var generators = require('yeoman-generator');
 var install = require('./../../common/conditional_install');
+var addTsReference = require('./../../common/add_ts_reference');
 
 
 module.exports = generators.Base.extend({
@@ -23,6 +24,11 @@ module.exports = generators.Base.extend({
       this.templatePath('webserver.ts'),
       this.destinationPath('src', 'webserver.ts')
     );
-  }
+  },
+
+
+  writingReferences: function() {
+    addTsReference(this, 'webserver.ts');
+  },
 });
 

@@ -1,2 +1,3 @@
-//  Add local typescript module reference comments here.
+//{module-references-begin}
+//{module-references-end}
 
