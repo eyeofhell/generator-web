@@ -21,7 +21,11 @@ module.exports = function(grunt) {
       }
 
       grunt.log.writeln("tsc: " + file.src[0] + " => " + file.dest);
-      var cmd = path.join('node_modules', '.bin', 'jsx-tsc.cmd');
+      var cmd = path.join(
+        'node_modules',
+        '.bin',
+        'win32' === process.platform ? 'jsx-tsc.cmd' : 'jsx-tsc'
+      );
       var args = [
         file.src[0],
         '--out',
