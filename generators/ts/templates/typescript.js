@@ -28,10 +28,8 @@ module.exports = function(grunt) {
       );
       var args = [
         file.src[0],
-        '--out',
-        file.dest,
         '--outDir',
-        path.join(__dirname, 'tmp', 'ts'),
+        file.dest,
         '--module',
         'commonjs',
       ];

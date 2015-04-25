@@ -34,10 +34,6 @@ module.exports = generators.Base.extend({
       this.templatePath('typescript.js'),
       this.destinationPath('grunt/typescript.js')
     );
-    this.fs.copyTpl(
-      this.templatePath('_references.ts'),
-      this.destinationPath('src', '_references.ts')
-    );
   },
 
 

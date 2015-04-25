@@ -1,5 +1,6 @@
 node_modules/
 public/
+typings/
 
 npm-debug.log
 .yo-rc.json

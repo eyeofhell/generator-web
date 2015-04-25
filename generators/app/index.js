@@ -24,8 +24,8 @@ module.exports = generators.Base.extend({
       this.destinationPath('.gitignore')
     );
     this.fs.copyTpl(
-      this.templatePath('default.js'),
-      this.destinationPath('grunt', 'default.js')
+      this.templatePath('automatic.js'),
+      this.destinationPath('grunt', 'automatic.js')
     );
   }
 });
