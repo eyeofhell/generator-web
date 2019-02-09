@@ -10,7 +10,7 @@
   "license": "GPLv3",
   "dependencies": {
     "js-beautify": "^1.5.5",
-    "lodash": "^3.5.0",
+    "lodash": "^4.17.11",
     "yeoman-generator": "^0.18.8"
   }
 }
